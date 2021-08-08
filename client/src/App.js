@@ -12,7 +12,7 @@ const App = () => (
           <Switch>
               <Route exact path="/" component ={Index} />
               <Route path="/home" component ={Home} />
-              <Route path="/detail" component ={DetailPokemon} />
+              <Route path="/detail/:id" component ={DetailPokemon} />
               <Route component={NotFound} />
           </Switch> 
   </BrowserRouter>
