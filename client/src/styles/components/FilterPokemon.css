@@ -1,0 +1,32 @@
+.filter-order{
+    width: 60%;
+    text-align: center;
+}
+
+.orden-filtro{
+    text-align: center;
+}
+
+.orden-filtro button, .orden-filtro a{
+  display: inline-block;
+  padding: 8px 22px;
+  font-size: .75em;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25rem;
+  background-color: #18447d;
+  text-decoration: none;
+}
+
+.orden-filtro select{
+  padding: 7px 22px;
+  font-size: .75em;
+  font-weight: 700;
+  color: #fff;
+  border-radius: 5px;
+  background-color: #18447d;
+}

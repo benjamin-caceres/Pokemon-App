@@ -33,7 +33,7 @@ router.get('/', async (req, res, next) => {
                 if (pokeFoundName.name === req.query.name) return res.json(pokeFoundName);
             }
             if (pokeDBName === null) {
-                let pokemonFromApi = await axios(`https://pokeapi.co/api/v2/pokemon/${req.query.name}`)
+                let pokemonFromApi = await axios(`https://pokeapi.co/api/v2/pokemon/${(req.query.name).toLowerCase()}`)
                 console.log(pokemonFromApi);
                 if (pokemonFromApi.data === 'Not Found') return res.json({});
                 if (pokemonFromApi.data.name) {
@@ -49,7 +49,7 @@ router.get('/', async (req, res, next) => {
                         img: pokemonFromApi.data.sprites.other.dream_world.front_default ?
                             pokemonFromApi.data.sprites.other.dream_world.front_default :
                             pokemonFromApi.data.sprites.other['official-artwork'].front_default,
-                        types: pokemonFromApi.types
+                        types: pokemonFromApi.data.types
                     }
                     return res.json(pokeFound)
                 }
@@ -57,11 +57,11 @@ router.get('/', async (req, res, next) => {
             else return res.json({});
  
         } catch (error) {
-            res.status(500).send("No se ha encontrado un pokemon con ese nombre.", error);
+            res.status(404).send("No se ha encontrado un pokemon con ese nombre.");
         }
     } else {
         try {
-            const pokemons = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=9');
+            const pokemons = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=40');
             let infoPokemons = [];
             let pokemonsFromDB = await Pokemons.findAll({
                 include: {
@@ -77,7 +77,14 @@ router.get('/', async (req, res, next) => {
                                 name: result.data.name,
                                 id: result.data.id,
                                 types: result.data.types,
-                                img: result.data.sprites?.other.dream_world.front_default
+                                img: result.data.sprites?.other.dream_world.front_default,
+                                height: result.data.height,
+                                weight: result.data.weight,
+                                hp: result.data.stats[0].base_stat,
+                                attack: result.data.stats[1].base_stat,
+                                defense: result.data.stats[2].base_stat,
+                                speed: result.data.stats[5].base_stat
+                
                             }
                         )
                     })
@@ -151,7 +158,7 @@ router.get('/:idPokemon', async (req, res, next) => {
 //Crear nuevo pokemon: con id unico y que devuelva el pokemon creado
 router.post('/', async function (req, res) {
     const id = uuidv4(); // generamos un ID random unico con la dependecia uuid
-    console.log('ID Generado', id);
+    console.log('ID Generado', id, req.body);
     let data = { ...req.body, id };
     if (!req.body.name) return res.status(400).send('El nombre del pokemon es mandatorio!');
     try {

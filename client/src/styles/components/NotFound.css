@@ -1,0 +1,35 @@
+.style-logo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.not-found{
+    display: flex;
+}
+
+.not-found img{
+    height: 350px;
+    
+}
+
+.error-404-text{
+    display: block;
+    margin: auto;
+    font-family: 'Pokemon Solid', sans-serif;   
+}
+.error-404-text h1{
+    font-size: 44px;
+    color: #FC7CFF;
+}
+
+.squirtle-vamo{
+    display: block;
+    margin: auto;
+}
+
+.squirtle-vamo h1{
+    text-align: center;
+    font-family: 'Pokemon Solid', sans-serif;
+}

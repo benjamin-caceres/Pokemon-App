@@ -1,0 +1,10 @@
+body{
+  background: linear-gradient(#8C00FB, #FF00D6);
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  font-family: 'Spartan', sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+

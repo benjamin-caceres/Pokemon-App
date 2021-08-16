@@ -1,0 +1,48 @@
+
+.bg-createPokemon{
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.bg-createPokemon h1{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.bg-createPokemon input{
+    width: 60%;
+    height: 25px;
+    
+}
+
+.bg-createPokemon input::placeholder{
+    color: #FC7CFF;
+}
+
+.bg-createPokemon form{
+    text-align: center;
+    
+}
+
+.bg-createPokemon select{
+    width: 31%;
+    height: 25px;
+    color: #FC7CFF;;
+}
+
+.bg-createPokemon .submit{
+    font-weight: bold;
+    color: white;
+    background: #3761a8;
+    border: none;
+    margin-top: 2px;
+}
+ 

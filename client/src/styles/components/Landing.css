@@ -1,0 +1,27 @@
+body{
+    background: linear-gradient(#8C00FB, #FF00D6);
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    font-family: 'Spartan', sans-serif;
+    overflow-x: hidden;
+}
+
+.main-container{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.bg-image img{
+    height: 500px;
+    max-width: 100%;
+    text-align: center;
+}
+
+.buton-main img{
+    height: 100px;
+    
+}
+
