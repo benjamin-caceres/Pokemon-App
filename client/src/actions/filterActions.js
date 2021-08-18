@@ -135,6 +135,7 @@ export const pokemonOrder = (by) => (dispatch, getState) => {
 				})
 			}
 			break;
+		
 		case 'All':
 			dispatch({
 				type: NO_ORDER,
@@ -144,6 +145,7 @@ export const pokemonOrder = (by) => (dispatch, getState) => {
 				}
 			})
 			break
+
 		default:
 			return pokemon
 	}
@@ -195,25 +197,25 @@ export const pokemonByType = (pokeType) => (dispatch, getState) => {
 	console.log('Pokemon', pokemon, pokeType);
 
 	let arrayByType = pokemon.filter((poke) => {
-	console.log('Poke', poke)
+		console.log('Poke', poke)
 
-	if (poke.types.length > 0) {
-		for (let index = 0; index < poke.types.length; index++) {
-			const currentPoke = poke.types[index];
-			if (currentPoke.hasOwnProperty('type')) {
-				if (currentPoke?.type?.name === pokeType) {
-					return true
-				} 
-			} else {
-				if(currentPoke?.name === pokeType) {
-					return true;
+		if (poke.types.length > 0) {
+			for (let index = 0; index < poke.types.length; index++) {
+				const currentPoke = poke.types[index];
+				if (currentPoke.hasOwnProperty('type')) {
+					if (currentPoke?.type?.name === pokeType) {
+						return true
+					}
+				} else {
+					if (currentPoke?.name === pokeType) {
+						return true;
+					}
 				}
 			}
+
+		} else {
+			return false
 		}
-		
-	} else {
-		return false
-	}
 	});
 	dispatch({
 		type: BY_TYPE,

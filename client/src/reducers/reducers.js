@@ -72,7 +72,7 @@ const pokemons = (state = initialState, action) => {
                 ordered_by: action.payload.name
             }
         case 'NO_ORDER':
-            return{
+            return {
                 ...state,
                 filteredPokemon: action.payload.pokemon,
                 ordered_by: action.payload.name
@@ -101,7 +101,7 @@ const pokemons = (state = initialState, action) => {
                 filteredPokemon: action.payload.arrayByType,
                 filtered_by: action.payload.name
             }
-            
+
         default:
             return state
     }

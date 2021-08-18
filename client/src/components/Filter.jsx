@@ -39,12 +39,11 @@ const FilterPokemon = ({ types, pokemons, pokemonByType, pokemonByOrigin, pokemo
             <Link to={'/form'} >Crea Tu Pokemon</Link>
             <select name="Tipo" id="" onChange={handleChange}>
                 <optgroup label="Origen">
-                    <option default value='All'>All</option>
+                    <option  default value='All'>All</option>
                     <option value="API" group="origin">Originales</option>
                     <option value="DB" group="origin">Creado</option>
                 </optgroup>
                 <optgroup label="By type">
-                    {/* <option default>All</option> */}
                      {types &&
                         types.map((type, i) => (
                             <option key={i} value={type.name}>
